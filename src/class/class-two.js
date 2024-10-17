@@ -57,7 +57,7 @@
 //     default: return console.log('não temos o siginificado dessa fruta!')
 // }
 
-const nota = '3'
+const nota = 3
 switch(nota) {
     case (nota < 4): return console.log('reprovado!');
     case (nota >= 4 && nota <= 5): return console.log('recuperação!');
