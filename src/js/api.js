@@ -17,9 +17,33 @@
 // getCEP('05763450')
 
 
-function getPokemon() {
-    fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(error => console.log(error))
+function getPokemon(pokemon) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+        .then((res) => res.json())
+        .then((data) => {
+            const {name, sprites, weight} = data;
+            const div = document.getElementById('pokemon-info')
+
+            div.innerHTML = `
+                <h2>${name}</h2>
+                <img src="${sprites.front_default}" alt="">
+                <p>${weight}</p>
+            `
+})
+        .catch(error => console.error('error:', error))
 }
+getPokemon('mewtwo')
+
+
+
+
+
+
+// function getProducts(products) {
+//     fetch(`https://fakestoreapi.com/${products}`)
+//         .then(res => res.json())
+//         .then(data => console.log(data))
+//         .catch(error => console.error('erro:', error))
+// }
+
+// getProducts('')
